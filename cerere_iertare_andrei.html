@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Îmi pare rău, Andrei 💔</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fde2e2, #e2f0fd);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      background-color: #fff8f0;
+      padding: 30px;
+      border-radius: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 600px;
+      position: relative;
+    }
+    h1 {
+      color: #ff8fa3;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      color: #444;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.8;
+    }
+    .heart:before, .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+    .heart:after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.8; }
+      100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Îmi pare rău, Andrei 💗</h1>
+    <p>
+      Știu, știu, am fost o mică răutăcioasă aseară... N-am gândit bine pe moment și nu mi-am dat seama că o să te deranjeze.<br>
+      Dar trebuia să fiu mai atentă. Chiar îți mulțumesc că te-ai gândit la mine aseară, și îmi pare foarte, foarte, foarte rău că te-am făcut să te simți prost.<br>
+      Știu că par o nesuferită uneori, dar nu vreau deloc să fiu așa cu tine.<br>
+      Promit să fiu mai drăguță... măcar până data viitoare când fac o prostie fără să vreau.
+    </p>
+  </div>
+
+  <script>
+    function createHearts() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      heart.style.background = `hsl(${Math.random() * 360}, 70%, 70%)`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHearts, 300);
+  </script>
+</body>
+</html>
